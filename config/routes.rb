@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#login'
   delete 'logout', to: 'sessions#logout'
   get '/profile', to: 'users#profile'
+  post 'top_up', to: 'transactions#top_up'
 end

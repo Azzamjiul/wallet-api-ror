@@ -6,10 +6,11 @@ class User < ApplicationRecord
   has_many :debits
 
   def balance
-    credits.sum(:amount) - debits.sum(:amount)
+    # Credit.where(user: self).sum(:amount) - Debit.where(user: self).sum(:amount)
+    Credit.where(user: self).sum(:amount)
   end
 
   def as_json(options = {})
-    super(options.merge({ except: [:password_digest] }))
+    super(options.merge({ methods: [:balance], except: [:password_digest] }))
   end
 end

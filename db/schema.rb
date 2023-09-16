@@ -22,8 +22,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_234242) do
     t.bigint "transaction_group_id", null: false
     t.float "amount", null: false
     t.string "transaction_type", null: false
+    t.bigint "source_user_id_id"
+    t.bigint "target_user_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["source_user_id_id"], name: "index_transactions_on_source_user_id_id"
+    t.index ["target_user_id_id"], name: "index_transactions_on_target_user_id_id"
     t.index ["transaction_group_id"], name: "index_transactions_on_transaction_group_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
@@ -39,4 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_234242) do
 
   add_foreign_key "transactions", "transaction_groups"
   add_foreign_key "transactions", "users"
+  add_foreign_key "transactions", "users", column: "source_user_id_id"
+  add_foreign_key "transactions", "users", column: "target_user_id_id"
 end
