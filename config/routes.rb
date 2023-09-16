@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#logout'
   get '/profile', to: 'users#profile'
   post 'top_up', to: 'transactions#top_up'
+  post 'transfer', to: 'transactions#transfer'
 end
