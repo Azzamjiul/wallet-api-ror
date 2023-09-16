@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_234242) do
 
   create_table "transactions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "transaction_group_id"
+    t.bigint "transaction_group_id", null: false
     t.float "amount", null: false
     t.string "transaction_type", null: false
     t.datetime "created_at", null: false
@@ -29,9 +29,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_234242) do
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
+    t.string "name", null: false
+    t.string "account_no", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
