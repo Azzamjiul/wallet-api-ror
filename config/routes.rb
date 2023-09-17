@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile'
   post 'top_up', to: 'transactions#top_up'
   post 'transfer', to: 'transactions#transfer'
+  get 'stock/price', to: 'stocks#price'
+  get 'stock/price_all', to: 'stocks#price_all'
 end
